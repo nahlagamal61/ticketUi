@@ -24,13 +24,7 @@ export class TicketListComponent {
       console.log(res.data);
       this.tickets = res.data;
       console.log(new Date().toISOString())
-      
-      let bgcolor ;
-      res.data.forEach(element => {
 
-        this.TrackTime(element.creationDateTime );
-
-      });
     })
   }
   UpdateStatus(id : number){
@@ -49,10 +43,10 @@ export class TicketListComponent {
     const createdDtaeFormated = new Date(createTime);
     const currentTime = new Date();
     const diffrentTime = (currentTime.getTime() - createdDtaeFormated.getTime()) / (1000 * 60);   
-    console.log("creatd " +createdDtaeFormated)
+    console.log("creatd " +createTime)
     console.log("current "+ currentTime)
     
-    console.log("1"+ diffrentTime); 
+    console.log("1  "+ diffrentTime); 
 
     if(diffrentTime > 60 )
     {

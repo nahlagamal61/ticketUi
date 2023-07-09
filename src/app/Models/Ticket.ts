@@ -2,7 +2,7 @@ export class TicketResponse{
     constructor(
         public id : number,
         public description: string,
-        public creationDateTime: any,
+        public manualCreationDateTime: any,
         public phoneNumber: string,
         public governorateName:string,
         public cityName:string,
