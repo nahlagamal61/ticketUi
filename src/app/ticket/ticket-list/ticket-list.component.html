@@ -1,0 +1,30 @@
+<section class="container ">
+    <div class="row mt-3">
+      <div *ngFor="let ticket of tickets| paginate: { itemsPerPage: resPerPage, currentPage: p }, let i = index "  class="col-lg-4 col-md-6 mb-4">
+        <div class="card text-center p-0 text-light"  [style.background-color]="TrackTime(ticket.creationDateTime)">
+          <!-- <div class="card-header bg-light text-white p-2">
+            <h6 class="card-title m-0 text-dark">{{ i + 1 }}</h6>
+          </div> -->
+          <div class="card-body pt-2">
+            <p class="card-text text-light">{{ ticket.description }}</p>
+            <p class="card-text text-light">{{ ticket.description }}</p>
+            <div class="row">
+              <div class="col-6">
+                <h6>Address:</h6>
+                <p class="card-text">{{ ticket.governorateName }}, {{ ticket.cityName }}, {{ ticket.district }}</p>
+              </div>
+              <div class="col-6">
+                <h6>Phone Number:</h6>
+                <p class="card-text">{{ ticket.phoneNumber }}</p>
+              </div>
+            </div>
+            <button class="btn btn-light  m-2" [disabled]="isHandled(ticket.ticketStatus) " (click)="UpdateStatus(ticket.id)">Handle Ticket</button>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="col-12 text-sm-center text-end">
+      <pagination-controls (pageChange)="p = $event"></pagination-controls>
+    </div>
+  </section>
+  
