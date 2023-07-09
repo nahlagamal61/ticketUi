@@ -69,7 +69,7 @@ export class TicketListComponent {
     {
       bgcolor = 'yellow';
     }else{
-      bgcolor ='white'
+      bgcolor ='gray'
     }
     return bgcolor;
   }

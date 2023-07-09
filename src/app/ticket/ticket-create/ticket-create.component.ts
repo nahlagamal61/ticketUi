@@ -2,6 +2,7 @@ import { Component, numberAttribute } from '@angular/core';
 import { City, Governorate, TicketRequest } from 'src/app/Models/Ticket';
 import { TicketService } from 'src/app/Services/ticket.service';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-ticket-create',
@@ -29,7 +30,7 @@ export class TicketCreateComponent {
     Governorate.BeniSuef,
     Governorate.Gharbia
   ];
-  constructor( private ticketService : TicketService ,private formBuilder: FormBuilder){
+  constructor( private ticketService : TicketService ,private formBuilder: FormBuilder , private router : Router){
     this.CreateTicketForm = this.formBuilder.group({
       "description": ['', Validators.required],
       "phoneNumber": ['', [Validators.required, Validators.pattern('^\\+20\\d{10}$')]],
@@ -59,6 +60,7 @@ export class TicketCreateComponent {
     );
     this.ticketService.add(addedTicket).subscribe(res =>{
           console.log(res)
+          this.router.navigate(['/home']);
           alert("add ticket succefully");
       },
       error => {
